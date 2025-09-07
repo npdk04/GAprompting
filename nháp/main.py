@@ -1,7 +1,7 @@
 import streamlit as st
 import time
-from utils.chat_functions import prompt_user, handle_first_prompt, generate_response
-from sidebar import draw_sidebar
+from utils.chat_functions import prompt_user, handle_first_prompt, generate_response, reset_chat
+from nháp.sidebar import draw_sidebar
 # Cấu hình trang Streamlit
 st.markdown("<h1 style='text-align: center;'>GA Prompting Project</h1>", unsafe_allow_html=True)
 
@@ -22,7 +22,7 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-
+    #st.button("Reset Chat", on_click= reset_chat)
 # Xử lý input từ người dùng
 if prompt := st.chat_input("Say something..."):
     # Thêm tin nhắn của người dùng vào lịch sử và hiển thị ngay lập tức

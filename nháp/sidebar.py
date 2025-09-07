@@ -17,7 +17,6 @@ class draw_sidebar():
     def logic_sidebar(self):
         with st.sidebar:
             st.write("Do you want to level up your prompting skill?")
-            
             col1, col2 = st.columns(2)
             
             with col1:
