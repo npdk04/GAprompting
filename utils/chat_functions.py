@@ -82,11 +82,11 @@ Sau đó, đánh giá các cách giải đó và chọn ra một cách tốt nh�
                 }
             ],
             3: [
-                {
-                    "name": "Multiple Chain-of-Thoughts",
-                    "guide": """Prompt 1: Hãy liệt kê tất cả các hướng giải quyết cho [Vấn đề của bạn] và các kiến thức liên quan.
-Prompt 2: Dựa trên các hướng giải quyết trên, hãy chọn hướng tốt nhất cho [Đối tượng, ví dụ: học sinh lớp 7] và giải quyết nó."""
-                },
+#                 {
+#                     "name": "Multiple Chain-of-Thoughts",
+#                     "guide": """Prompt 1: Hãy liệt kê tất cả các hướng giải quyết cho [Vấn đề của bạn] và các kiến thức liên quan.
+# Prompt 2: Dựa trên các hướng giải quyết trên, hãy chọn hướng tốt nhất cho [Đối tượng, ví dụ: học sinh lớp 7] và giải quyết nó."""
+#                 },
                 {
                     "name": "Structured Prompting",
                     "guide": """### Task instruction
@@ -145,7 +145,8 @@ Prompt 2: Dựa trên các hướng giải quyết trên, hãy chọn hướng t
                     formatted_guide = guide['guide'].replace('[Vấn đề của bạn]', prompt or "vấn đề của bạn")
                     st.markdown(f"""
                     ### Hướng dẫn: {guide['name']}
-                    {formatted_guide}
                     """)
+                    st.markdown(f"""{formatted_guide}
+                    """, unsafe_allow_html=False)
                 except Exception as e:
                     st.error(f"Lỗi khi hiển thị hướng dẫn: {str(e)}")
